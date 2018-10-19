@@ -1,6 +1,7 @@
 {
-  "name": "react-trello",
-  "description": "Pluggable components to add a trello like kanban board to your application",
+  "name": "react-trello-for-timeline",
+  "description": "Pluggable components to add a trello like kanban board to your application, customized for Timeline.io",
+  "version": "1.0.0",
   "main": "dist/index.js",
   "jsnext:main": "components/index.js",
   "module": "components/index.js",
@@ -25,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rcdexta/react-trello"
+    "url": "https://github.com/Orbital-Timeline/react-trello"
   },
   "keywords": [
     "react",
@@ -35,9 +36,9 @@
   "author": "RC, Prakash",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rcdexta/react-trello/issues"
+    "url": "https://github.com/Orbital-Timeline/react-trello/issues"
   },
-  "homepage": "https://github.com/rcdexta/react-trello",
+  "homepage": "https://github.com/Orbital-Timeline/react-trello",
   "dependencies": {
     "immutability-helper": "^2.8.1",
     "lodash": "^4.17.11",

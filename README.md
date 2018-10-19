@@ -1,4 +1,4 @@
-# react-trello
+# react-trello-for-timeline
 
 Pluggable components to add a trello-like kanban board to your application
 
@@ -24,13 +24,13 @@ Pluggable components to add a trello-like kanban board to your application
 Install using npm or yarn
 
 ```bash
-$ npm install --save react-trello
+$ npm install --save react-trello-for-timeline
 ```
 
 or
 
 ```bash
-$ yarn add react-trello
+$ yarn add react-trello-for-timeline
 ```
 
 ## Usage

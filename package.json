@@ -1,7 +1,7 @@
 {
   "name": "react-trello-for-timeline",
   "description": "Pluggable components to add a trello like kanban board to your application, customized for Timeline.io",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "jsnext:main": "components/index.js",
   "module": "components/index.js",

@@ -22,7 +22,7 @@ class BoardContainer extends Component {
   }
   //+end
   */
-  
+
   componentWillMount() {
     const {actions, eventBusHandle} = this.props
     actions.loadBoard(this.props.data)
@@ -120,7 +120,9 @@ class BoardContainer extends Component {
 
   render() {
     const {id, reducerData, draggable, laneDraggable, laneDragClass, style, provisionNewLane, createNewLane, laneBeingAdded, addLaneTitle, editable, ...otherProps} = this.props
+    /*
     const {addLaneMode} = this.state
+    */
     // Stick to whitelisting attributes to segregate board and lane props
     const passthroughProps = pick(this.props, [
       'onLaneScroll',

@@ -180,9 +180,9 @@ class BoardContainer extends Component {
         >
           {editable && !addLaneMode ? (
             <LaneSection style={{width: 200}}>
-              <NewLaneButton onClick={this.createNewLane}>{addLaneTitle}</NewLaneButton>
+              <NewLaneButton onClick={this.showEditableLane}>{addLaneTitle}</NewLaneButton>
             </LaneSection>
-          ) : (addLaneMode && this.renderNewLane())}
+          ) : (addLaneMode && this.createNewLane())}
         </Container>
       </BoardDiv>
     );

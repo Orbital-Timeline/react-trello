@@ -182,7 +182,7 @@ class BoardContainer extends Component {
             <LaneSection style={{width: 200}}>
               <NewLaneButton onClick={this.showEditableLane}>{addLaneTitle}</NewLaneButton>
             </LaneSection>
-          ) : (addLaneMode && this.createNewLane())}
+          ) : (addLaneMode && createNewLane())}
         </Container>
       </BoardDiv>
     );

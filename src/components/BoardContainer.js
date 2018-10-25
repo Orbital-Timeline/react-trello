@@ -189,7 +189,7 @@ class BoardContainer extends Component {
         >
           {editable && !laneBeingAdded ? (
             <LaneSection style={{width: 200}}>
-              <NewLaneButton onClick={provisionNewLane}>{addLaneTitle}</NewLaneButton>
+              <NewLaneButton onClick={provisionNewLane}>{addLaneTitle()}</NewLaneButton>
             </LaneSection>
           ) : (laneBeingAdded && createNewLane())}
         </Container>

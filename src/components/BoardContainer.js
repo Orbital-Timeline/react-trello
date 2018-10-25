@@ -114,7 +114,7 @@ class BoardContainer extends Component {
   }
 
   render() {
-    const {id, reducerData, draggable, laneDraggable, laneDragClass, style, addLaneTitle, editable, ...otherProps} = this.props
+    const {id, reducerData, draggable, laneDraggable, laneDragClass, style, createNewLane, addLaneTitle, editable, ...otherProps} = this.props
     const {addLaneMode} = this.state
     // Stick to whitelisting attributes to segregate board and lane props
     const passthroughProps = pick(this.props, [
@@ -137,6 +137,7 @@ class BoardContainer extends Component {
       'handleDragEnd',
       'cardDragClass',
       'children',
+      'createNewLane',
       'addLaneTitle',
       'addCardTitle',
       'newLaneTemplate',
@@ -179,7 +180,7 @@ class BoardContainer extends Component {
         >
           {editable && !addLaneMode ? (
             <LaneSection style={{width: 200}}>
-              <NewLaneButton onClick={this.showEditableLane}>{addLaneTitle}</NewLaneButton>
+              <NewLaneButton onClick={this.createNewLane}>{addLaneTitle}</NewLaneButton>
             </LaneSection>
           ) : (addLaneMode && this.renderNewLane())}
         </Container>
@@ -218,6 +219,7 @@ BoardContainer.propTypes = {
   cardDraggable: PropTypes.bool,
   cardDragClass: PropTypes.string,
   laneDragClass: PropTypes.string,
+  createNewLane: PropTypes.func,
   addLaneTitle: PropTypes.string,
   addCardTitle: PropTypes.string,
   newLaneTemplate: PropTypes.node
@@ -237,6 +239,7 @@ BoardContainer.defaultProps = {
   cardDraggable: true,
   cardDragClass: 'react_trello_dragClass',
   laneDragClass: 'react_trello_dragLaneClass',
+  createNewLane: () => {},
   addLaneTitle: '+ Add another lane',
   addCardTitle: 'Add Card'
 };

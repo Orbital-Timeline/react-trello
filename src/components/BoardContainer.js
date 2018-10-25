@@ -15,12 +15,14 @@ import * as boardActions from '../actions/BoardActions'
 import * as laneActions from '../actions/LaneActions'
 
 class BoardContainer extends Component {
+  /*
   //+add 2018.08.23
   state = {
-    addLaneMode: false
+    laneBeingAdded: false
   }
-
   //+end
+  */
+  
   componentWillMount() {
     const {actions, eventBusHandle} = this.props
     actions.loadBoard(this.props.data)
@@ -86,13 +88,15 @@ class BoardContainer extends Component {
     eventBusHandle(eventBus)
   }
 
+/*
   // + add
   hideEditableLane = () => {
-    this.setState({addLaneMode: false})
+    this.setState({laneBeingAdded: false})
   }
 
+
   showEditableLane = () => {
-    this.setState({addLaneMode: true})
+    this.setState({laneBeingAdded: true})
   }
 
   addNewLane = params => {
@@ -112,9 +116,10 @@ class BoardContainer extends Component {
       return <NewLane onCancel={this.hideEditableLane} onAdd={this.addNewLane}/>
     }
   }
+*/
 
   render() {
-    const {id, reducerData, draggable, laneDraggable, laneDragClass, style, createNewLane, addLaneTitle, editable, ...otherProps} = this.props
+    const {id, reducerData, draggable, laneDraggable, laneDragClass, style, provisionNewLane, createNewLane, laneBeingAdded, addLaneTitle, editable, ...otherProps} = this.props
     const {addLaneMode} = this.state
     // Stick to whitelisting attributes to segregate board and lane props
     const passthroughProps = pick(this.props, [
@@ -137,7 +142,9 @@ class BoardContainer extends Component {
       'handleDragEnd',
       'cardDragClass',
       'children',
+      'provisionNewLane',
       'createNewLane',
+      'laneBeingAdded',
       'addLaneTitle',
       'addCardTitle',
       'newLaneTemplate',
@@ -178,11 +185,11 @@ class BoardContainer extends Component {
         <Container
           orientation="horizontal"
         >
-          {editable && !addLaneMode ? (
+          {editable && !laneBeingAdded ? (
             <LaneSection style={{width: 200}}>
-              <NewLaneButton onClick={this.showEditableLane}>{addLaneTitle}</NewLaneButton>
+              <NewLaneButton onClick={provisionNewLane}>{addLaneTitle}</NewLaneButton>
             </LaneSection>
-          ) : (addLaneMode && createNewLane())}
+          ) : (laneBeingAdded && createNewLane())}
         </Container>
       </BoardDiv>
     );
@@ -219,7 +226,9 @@ BoardContainer.propTypes = {
   cardDraggable: PropTypes.bool,
   cardDragClass: PropTypes.string,
   laneDragClass: PropTypes.string,
+  provisionNewLane: PropTypes.func,
   createNewLane: PropTypes.func,
+  laneBeingAdded: PropTypes.bool,
   addLaneTitle: PropTypes.string,
   addCardTitle: PropTypes.string,
   newLaneTemplate: PropTypes.node
@@ -239,7 +248,9 @@ BoardContainer.defaultProps = {
   cardDraggable: true,
   cardDragClass: 'react_trello_dragClass',
   laneDragClass: 'react_trello_dragLaneClass',
+  provisionNewLane: () => {},
   createNewLane: () => {},
+  laneBeingAdded: false,
   addLaneTitle: '+ Add another lane',
   addCardTitle: 'Add Card'
 };

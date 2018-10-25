@@ -231,7 +231,7 @@ BoardContainer.propTypes = {
   provisionNewLane: PropTypes.func,
   createNewLane: PropTypes.func,
   laneBeingAdded: PropTypes.bool,
-  addLaneTitle: PropTypes.string,
+  addLaneTitle: PropTypes.func,
   addCardTitle: PropTypes.string,
   newLaneTemplate: PropTypes.node
 };
@@ -253,7 +253,7 @@ BoardContainer.defaultProps = {
   provisionNewLane: () => {},
   createNewLane: () => {},
   laneBeingAdded: false,
-  addLaneTitle: '+ Add another lane',
+  addLaneTitle: () => {},
   addCardTitle: 'Add Card'
 };
 
